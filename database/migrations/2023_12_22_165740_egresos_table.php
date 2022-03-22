@@ -16,7 +16,6 @@ class EgresosTable extends Migration
         Schema::create('egresos', function (Blueprint $table) {
             $table->id('egre_id');
             $table->foreignid('usu_id')->references('usu_id')->on('users');
-            $table->foreignid('car_id')->references('car_id')->on('cargo');  
             $table->string('egre_cantidad');
 
         });

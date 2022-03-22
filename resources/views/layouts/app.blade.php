@@ -32,6 +32,7 @@
       <a class="btn btn-info" href="{{route('usuarios')}}">Usuarios</a>
 
       <a class=" btn btn-success" href="{{route('categorias')}}">Categorias</a>
+      <a class=" btn btn-success" href="{{route('ingresos')}}">Ingresos</a>
 
 
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

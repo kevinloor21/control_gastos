@@ -44,3 +44,7 @@ Route::get('/categorias/edit/{cat_id}','CategoriasController@edit')->name('categ
 Route::post('/categoria/update/{cat_id}','CategoriasController@update')->name('categoria.uptade');
 
 Route::post('/categoria/destroy/{cat_id}','CategoriasController@destroy')->name('categoria.destroy');
+
+Route::get('/ingresos','IngresosController@index')->name('ingresos');
+
+Route::get('/ingreso/create','IngresosController@create')->name('ingresos.create');

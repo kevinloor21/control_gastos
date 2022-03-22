@@ -15,9 +15,12 @@ class IngresosTable extends Migration
     {
         Schema::create('ingresos', function (Blueprint $table) {
             $table->id('ing_id');
-            $table->foreignid('car_id')->references('car_id')->on('cargo');
-            $table->foreignid('usu_id')->references('usu_id')->on('users');
+            $table->date('ing_fecha');
+            $table->string('ing_tipo');
             $table->string('ing_cantidad');
+            $table->string('ing_detalle');
+            $table->foreignid('tip_id')->references('tip_id')->on('tipos');
+
 
         });
     }
