@@ -1,25 +1,25 @@
 @extends('layouts.app')
 @section('content')
 
-<h1 class="text-white" class="bg-info">𝘓𝘪𝘴𝘵𝘢 𝘥𝘦 𝘤𝘢𝘵𝘦𝘨𝘰𝘳𝘪𝘢𝘴</h1>
+<h1 class="" class="bg-info">𝘓𝘪𝘴𝘵𝘢 𝘥𝘦 𝘤𝘢𝘵𝘦𝘨𝘰𝘳𝘪𝘢𝘴</h1>
 
 <a href="{{route('categorias.create')}}" class="btn btn-primary">Nuevo</a>
 
-<p class="text-white "></p>
+<p class="text-white"></p>
 
 
 
 <table class="table">
 
-<th class="text-white ">#</th>
-<th class="text-white ">Detalle</th>
-<th class="text-white ">Acciones</th>
+<th class="text- ">#</th>
+<th class="text- ">Detalle</th>
+<th class="text- ">Acciones</th>
 
 @foreach($categorias as $cat)
 
 <tr>
-	<td class="text-white ">{{$loop->iteration}}</td>
-	<td class="text-white ">{{$cat->cat_detalle}}</td>
+	<td class="text- ">{{$loop->iteration}}</td>
+	<td class="text- ">{{$cat->cat_detalle}}</td>
 	<td>
 		
 

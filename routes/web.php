@@ -32,12 +32,9 @@ Route::post('/usuarios/store','UsuariosController@store')->name('usuario.store')
 
 Route::get('/categorias','CategoriasController@index')->name('categorias');
 
-
 Route::get('/categorias/create','CategoriasController@create')->name('categorias.create');
 
-
 Route::post('/categorias/store','CategoriasController@store')->name('categoria.store');
-
 
 Route::get('/categorias/edit/{cat_id}','CategoriasController@edit')->name('categorias.edit');
 
@@ -45,6 +42,24 @@ Route::post('/categoria/update/{cat_id}','CategoriasController@update')->name('c
 
 Route::post('/categoria/destroy/{cat_id}','CategoriasController@destroy')->name('categoria.destroy');
 
-Route::get('/ingresos','IngresosController@index')->name('ingresos');
 
-Route::get('/ingreso/create','IngresosController@create')->name('ingresos.create');
+
+Route::get('/tipos','TiposController@index')->name('tipos');
+
+Route::get('/tipos/create','TiposController@create')->name('tipos.create');
+
+Route::post('/tipos/store','TiposController@store')->name('tipos.store');
+
+Route::get('/tipos/edit/{tip_id}','TiposController@edit')->name('tipos.edit');
+
+Route::post('/tipo/update/{tip_id}','TiposController@update')->name('tipo.uptade');
+
+Route::post('/tipos/destroy/{tip_id}','TiposController@destroy')->name('tipos.destroy');
+
+
+
+Route::get('/ingresos','IngresosController@index')->name('ingresos');   
+
+Route::get('/ingresos/create','IngresosController@create')->name('ingresos.create');   
+
+

@@ -22,17 +22,18 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-warning " style="font-family: algeria; color: Black;">
-            <img src="https://w7.pngwing.com/pngs/745/747/png-transparent-records-management-graphy-management-company-people-business-thumbnail.png" width="50px"><h2>Control De Gastos</h2>
+             <h1>𝕺'𝕂𝕖𝕧𝕚𝕟</h1>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
   <div class="collapse navbar-collapse" style="margin-left: 60%;">
     <div class="navbar-nav">
 
-      <a class="btn btn-info" href="{{route('usuarios')}}">Usuarios</a>
+      <a class="btn btn-dark" href="{{route('usuarios')}}">Usuarios</a>
 
-      <a class=" btn btn-success" href="{{route('categorias')}}">Categorias</a>
-      <a class=" btn btn-success" href="{{route('ingresos')}}">Ingresos</a>
+      <a class=" btn btn-dark" href="{{route('categorias')}}">Categorias</a>
+      <a class=" btn btn-dark" href="{{route('ingresos')}}">Ingresos</a>
+      <a class=" btn btn-dark" href="{{route('tipos')}}">Tipos</a>
 
 
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
