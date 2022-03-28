@@ -11,15 +11,15 @@
 
 <table class="table">
 
-<th class="text- ">#</th>
-<th class="text- ">Detalle</th>
-<th class="text- ">Acciones</th>
+<th class="text-black">#</th>
+<th class="text-black">Detalle</th>
+<th class="text-black">Acciones</th>
 
 @foreach($categorias as $cat)
 
 <tr>
-	<td class="text- ">{{$loop->iteration}}</td>
-	<td class="text- ">{{$cat->cat_detalle}}</td>
+	<td class="text-black ">{{$loop->iteration}}</td>
+	<td class="text-black ">{{$cat->cat_detalle}}</td>
 	<td>
 		
 
