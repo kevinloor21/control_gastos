@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Tipos;
+use Auth;
+use App\Movimientos;
+use App\User;
+use DB;
 
 class MovimientosController extends Controller
 {
@@ -11,9 +16,37 @@ class MovimientosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+
+
+        $data=$request->all();
+        $desde=date('Y-m-d');
+        $hasta=date('Y-m-d');
+
+if (isset($data['desde'])) { //SI LE DA CLICK AL BOTON BUSCAR
+        
+        $desde=$data['desde'];
+        
+        $hasta=$data['hasta'];
+}
+
         //
+        //$movimientos=Movimientos::all();//Eloquent
+        $movimientos=DB::select(" 
+            SELECT * FROM movimientos m 
+                JOIN users u ON m.usu_id=u.usu_id 
+              JOIN tipos t ON m.tip_id=t.tip_id
+            WHERE m.mov_fecha BETWEEN '$desde' AND '$hasta'
+       
+            ");  
+
+        return view('movimientos.index')
+        ->with('movimientos',$movimientos)
+        ->with('desde',$desde)
+        ->with('hasta',$hasta)
+        ;
+
     }
 
     /**
@@ -23,7 +56,9 @@ class MovimientosController extends Controller
      */
     public function create()
     {
-        //
+
+     $tipos=Tipos::all();
+        return view('movimientos.create')->with('tipos',$tipos);
     }
 
     /**
@@ -35,7 +70,21 @@ class MovimientosController extends Controller
     public function store(Request $request)
     {
         //
+        $data=$request->all();
+
+        $data['usu_id']=Auth::User()->usu_id; 
+
+//dd($data);
+
+
+        Movimientos::create($data);
+        return redirect(route("movimientos"));
+    
+
+
     }
+
+
 
     /**
      * Display the specified resource.
@@ -57,6 +106,11 @@ class MovimientosController extends Controller
     public function edit($id)
     {
         //
+
+         $movimientos=Movimientos::find($id);
+         $tipos=Tipos::all();
+        return view('movimientos.edit')->with('movimientos',$movimientos)->with('tipos',$tipos);
+        
     }
 
     /**
@@ -69,6 +123,9 @@ class MovimientosController extends Controller
     public function update(Request $request, $id)
     {
         //
+         $m=Movimientos::find($id);
+         $m->update($request->all());
+         return redirect(route("movimientos"));
     }
 
     /**
@@ -80,5 +137,12 @@ class MovimientosController extends Controller
     public function destroy($id)
     {
         //
+                        Movimientos::destroy($id);
+        return redirect(route("movimientos"));
     }
+
+
+
+
+
 }

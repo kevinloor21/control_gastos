@@ -19,6 +19,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-warning " style="font-family: algeria; color: Black;">
@@ -32,7 +34,7 @@
       <a class="btn btn-dark" href="{{route('usuarios')}}">Usuarios</a>
 
       <a class=" btn btn-dark" href="{{route('categorias')}}">Categorias</a>
-      <a class=" btn btn-dark" href="{{route('ingresos')}}">Ingresos</a>
+      <a class=" btn btn-dark" href="{{route('movimientos')}}">movimientos</a>
       <a class=" btn btn-dark" href="{{route('tipos')}}">Tipos</a>
 
 
