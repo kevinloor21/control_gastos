@@ -1,11 +1,24 @@
 @extends('layouts.app')
 @section('content')
+
 <div class="container">
 	<div class="col-md-12">
 		<h1 style="font-family:algeria">Lista De Movimientos
-		<a href=" {{route('movimientos.create')}} " class="btn-primary btn">Nuevo
-		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkknsKjVZuT67PNzpKml_VWXZ4HWowTI0cNQ&usqp=CAU" width="20px"></a>
+<a href=" {{route('movimientos.create')}} " class="btn-primary btn">Nuevo<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkknsKjVZuT67PNzpKml_VWXZ4HWowTI0cNQ&usqp=CAU" width="20px"></a>
 		</h1>
+
+			<form class="" action="{{route('movimientos.search')}}" method="POST">
+			@csrf
+			Desde:<input type="date" name="desde" value="{{$desde}}">
+			Hasta:<input type="date" name="hasta" value="{{$hasta}}">
+			<button class="btn btn-success btn-sm" title="Buscar" value="btn_buscar" name="btn_buscar">
+BUSCAR</button>
+				
+			<button class="btn btn-danger btn-sm" title="PDF" value="btn_pdf" name="btn_pdf">PDF</button>
+
+			</form>
+
+
 	<table class="table table-striped table-danger table-sm table-bordered table-hover  ">
 		  <thead class="thead-dark">
 		<th style="text-align:center;">#</th>
@@ -28,7 +41,7 @@ $t_saldo=0;
 
 	<?php
 
-	if ($mov->mov_cantidad==0){
+	if ($mov->mov_tipo==1){
 		$t_ing+=$mov->mov_cantidad;
 		
 	}else{

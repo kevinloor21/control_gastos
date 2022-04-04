@@ -8,6 +8,8 @@ use Auth;
 use App\Movimientos;
 use App\User;
 use DB;
+use PDF;
+
 
 class MovimientosController extends Controller
 {
@@ -19,18 +21,16 @@ class MovimientosController extends Controller
     public function index(Request $request)
     {
 
-
         $data=$request->all();
+
         $desde=date('Y-m-d');
         $hasta=date('Y-m-d');
 
-if (isset($data['desde'])) { //SI LE DA CLICK AL BOTON BUSCAR
+           if (isset($data['desde'])) {
+                $desde=$data['desde'];
+                $hasta=$data['hasta'];
+            }
         
-        $desde=$data['desde'];
-        
-        $hasta=$data['hasta'];
-}
-
         //
         //$movimientos=Movimientos::all();//Eloquent
         $movimientos=DB::select(" 
@@ -41,11 +41,24 @@ if (isset($data['desde'])) { //SI LE DA CLICK AL BOTON BUSCAR
        
             ");  
 
+
+
+
+        if (isset($data['btn_pdf'])) {
+            $data=['movimientos'=>$movimientos];
+            $pdf = PDF::loadView('movimientos.reporte', $data);
+            return $pdf->stream('reporte.pdf');
+        }
+
+
+
+
         return view('movimientos.index')
         ->with('movimientos',$movimientos)
         ->with('desde',$desde)
-        ->with('hasta',$hasta)
-        ;
+        ->with('hasta',$hasta);
+
+
 
     }
 
@@ -72,7 +85,7 @@ if (isset($data['desde'])) { //SI LE DA CLICK AL BOTON BUSCAR
         //
         $data=$request->all();
 
-        $data['usu_id']=Auth::User()->usu_id; 
+        $data['usu_id']=Auth::user()->usu_id; 
 
 //dd($data);
 
