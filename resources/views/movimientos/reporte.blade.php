@@ -1,79 +1,60 @@
-<h3 style="color:red">Hola</h3>
+<h1 align="center">REPORTE</h1></center>
 
-
-	<table class="table table-striped table-danger table-sm table-bordered table-hover  ">
-		  <thead class="thead-dark">
-		<th style="text-align:center;">#</th>
-		<th style="text-align:center;">Fecha</th>
-		<th style="text-align:center;">Tipo</th>
-		<th style="text-align:center;">Cantidad</th>
-		<th style="text-align:center;">Detalle</th>
-		<th style="text-align:center;">Tipo</th>
-		<th style="text-align:center;">Usuario</th>
-		<th style="text-align:center;"></th>
-	<?php
-$t_ing=0;
-$t_egr=0;
-$t_saldo=0;
-
-
-	?>
-		
+<table align="center"border="10"> 
+<th height="25" width="35"  bgcolor="silver" >#</th>
+<th height="30" width="50"  bgcolor="silver">Fecha</th>
+<th height="30" width="50"  bgcolor="silver">Usuario</th>
+<th height="30" width="50"  bgcolor="silver">Concepto</th>
+<th height="30" width="50"  bgcolor="silver">Cantidad</th>
+<th height="30" width="50"  bgcolor="silver">Detalle</th>
+<th height="30" width="50"  bgcolor="silver">Tipo</th>
+ 
+ <?php
+$t_ing=20;
+$t_egr=20;
+$t_saldo=20;
+?> 
+<!-- <th>Acciones</th> -->
 @foreach($movimientos as $mov)
 
-	<?php
+<?php
 
-	if ($mov->mov_tipo==1){
-		$t_ing+=$mov->mov_cantidad;
-		
-	}else{
-		$t_egr+=$mov->mov_cantidad;
-	}
+if ($mov->mov_tipo==10) {
+	$t_ing+=$mov->mov_cantidad;
 
-
-
-	?>
-	
-			<tr>
-				<td style="text-align:center;">{{$loop->iteration}}</td>
-				<td style="text-align:center;">{{$mov->mov_fecha}}</td>
+}else{
+	$t_egr+=$mov->mov_cantidad;
+}
+$t_saldo=$t_ing-$t_egr;
+?>
 
 
-@if($mov->mov_tipo==1)
 
-<td style="text-align:center;">Ingreso</td>
-
- @else
-
-<td style="text-align:center;">Egreso</td>
-
-  @endif
-
-
-				<td style="text-align:center;">${{number_format($mov->mov_cantidad,2)}}</td>
-
-				<td style="text-align:center;">{{$mov->mov_detalle}}</td>
-
-				<td style="text-align:center;">{{$mov->tip_detalles}}</td>
-
-				<td style="text-align:center;">{{$mov->usu_name}}</td>
+	<tr>
+        <td>{{$loop->iteration}}</td>  
+		<td>{{$mov->mov_fecha}}</td>
+		<td>{{$mov->usu_nombre}}</td>
+		<td>{{$mov->tip_descripcion}}</td>
+		<td>${{number_format($mov->mov_cantidad,2)}}</td>
+		<td>{{$mov->mov_detalle}}</td>
 
 
+		@if($mov->mov_tipo==1)
+		<td>Ingresos</td>
+		@else
+		<td>Egresos</td>
+		@endif
 				
 
-</div>
+		@endforeach
 
-</td>
-
-
-			</tr>
-			
-	@endforeach
-	<tr style="margin-top: 8%;">
-		
-        <th>Ingresos: {{$t_ing}}$ </th>
-        <th>Egresos: {{$t_egr}}$ </th>
-        <th>Saldo: {{$t_saldo}}$ </th>
-
-
-	</tr>
+<tr>
+		<th colspan="1">
+		Totales:
+		<th>Ingresos:{{$t_ing}}</th>
+		<th>Egresos:{{$t_egr}}</th>
+		<th>Saldo:{{$t_saldo}}</th>
+	</th>
+</tr>	
+</tr>		
+</table>

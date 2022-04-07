@@ -22,13 +22,13 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
 </head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-light bg-warning " style="font-family: algeria; color: Black;">
-             <h1>𝕺'𝕂𝕖𝕧𝕚𝕟</h1>
+<body class=""style="font-family:algeria;background:#ebebeb">
+<nav class="navbar navbar-expand-lg navbar-light " style="font-family: algeria;background:#292f36;" >             
+            <h1 class="text-white">𝕺'𝕂𝕖𝕧𝕚𝕟</h1>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-  <div class="collapse navbar-collapse" style="margin-left: 60%;">
+  <div class="collapse navbar-collapse" style="margin-left:55%;">
     <div class="navbar-nav">
 
       <a class="btn btn-dark" href="{{route('usuarios')}}">Usuarios</a>

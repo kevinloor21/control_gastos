@@ -85,13 +85,13 @@ class MovimientosController extends Controller
         //
         $data=$request->all();
 
-        $data['usu_id']=Auth::user()->usu_id; 
+        $data['usu_id']=Auth::User()->usu_id; 
 
 //dd($data);
 
 
         Movimientos::create($data);
-        return redirect(route("movimientos"));
+        return redirect(route('movimientos'));
     
 
 
